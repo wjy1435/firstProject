@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.UserMapper">
+
+
+    <insert id="save" parameterType="com.example.model.entity.User">
+        insert into user (name,pwd,head_img,phone,create_time)values (#{name},#{pwd},#{headImg},#{phone},#{createTime});
+    </insert>
+
+    <select id="findByPhong" resultType="com.example.model.entity.User">
+        select * from user where phone = #{phone};
+    </select>
+
+    <select id="finByPhoneAndPwd" resultType="com.example.model.entity.User">
+        select * from user where phone=#{phone} and pwd =#{pwd};
+    </select>
+
+
+    <select id="finUserById" resultType="com.example.model.entity.User">
+        select * from user where id = #{id};
+    </select>
+</mapper>
